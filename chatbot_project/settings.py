@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-yyffab6=*(z4tk456&t(b0g8=+((9qeaono1cm5bjd0h**lrz_
 DEBUG = True
 
 ALLOWED_HOSTS = ['persona-ai-hitesh-piyush.onrender.com']
-# //'persona-ai-hitesh-piyush.onrender.com'
-
+# 'persona-ai-hitesh-piyush.onrender.com'
 # Application definition
 
 INSTALLED_APPS = [

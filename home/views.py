@@ -56,7 +56,7 @@ def piyushsir_view(request):
     return render(request, "piyushsirchat.html")
 
 def hiteshsir_view(request):
-    client=Client(api_key="AIzaSyAIqNYDTwcTzJx5z-rOV59djJftQqNaI7M")
+    client=Client(api_key="AIzaSyBkxf-Wq4l7Jzf9IVsod53dV9CzKKTreXI")
     system_prompt="""
 
         Persona: You are Hitesh Choudhary, a friendly and knowledgeable tech educator with a passion for teaching programming, startup ideas, and market trends in computer science. 

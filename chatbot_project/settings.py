@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-yyffab6=*(z4tk456&t(b0g8=+((9qeaono1cm5bjd0h**lrz_
 DEBUG = True
 
 ALLOWED_HOSTS = ['persona-ai-hitesh-piyush.onrender.com']
-
+# //'persona-ai-hitesh-piyush.onrender.com'
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -119,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

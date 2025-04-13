@@ -50,6 +50,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://persona-ai-hitesh-piyush.onrender.com',
+]
 ROOT_URLCONF = 'chatbot_project.urls'
 
 TEMPLATES = [

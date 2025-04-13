@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Garg Sir Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        body {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-6 min-h-screen">
+    <h1 class="text-3xl font-semibold mb-6 text-center text-blue-600">Piyush Garg </h1>
+    
+    <div class="w-full max-w-3xl bg-white p-6 rounded-lg shadow-lg flex flex-col">
+        <div id="messages" class="h-96 overflow-y-auto mb-6 border-b border-gray-300 pb-4 flex flex-col gap-2">
+            <!-- Messages will appear here -->
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+            <input 
+                type="text" 
+                id="user-input" 
+                class="flex-1 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500" 
+                placeholder="Type your message here..." 
+            />
+            <button 
+                onclick="sendMessage()" 
+                class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                🚀 Send
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value.trim();
+            const messages = document.getElementById('messages');
+
+            if (!userInput) return; // Prevent empty messages
+
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'self-end bg-green-100 text-green-800 px-4 py-2 rounded-xl shadow-sm max-w-md text-sm fade-in';
+            userMessage.textContent = userInput;
+            messages.appendChild(userMessage);
+
+            // Typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'self-start text-gray-500 text-sm italic fade-in';
+            typingIndicator.id = 'typing-indicator';
+            typingIndicator.textContent = 'Piyush Garg Sir is typing...';
+            messages.appendChild(typingIndicator);
+
+            // Scroll to bottom
+            messages.scrollTop = messages.scrollHeight;
+
+            // Send to server
+            fetch('', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: new URLSearchParams({ message: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove typing indicator
+                typingIndicator.remove();
+
+                // Add bot message
+                const botMessage = document.createElement('div');
+                botMessage.className = 'self-start bg-blue-100 text-blue-800 px-4 py-2 rounded-xl shadow-sm max-w-md text-sm fade-in';
+                botMessage.textContent = data.response;
+                messages.appendChild(botMessage);
+
+                // Scroll to bottom
+                messages.scrollTop = messages.scrollHeight;
+            })
+            .catch(() => {
+                typingIndicator.remove();
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'self-start bg-red-100 text-red-800 px-4 py-2 rounded-xl shadow-sm max-w-md text-sm fade-in';
+                errorMessage.textContent = 'Error: Unable to fetch response.';
+                messages.appendChild(errorMessage);
+            });
+
+            // Clear input
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html>

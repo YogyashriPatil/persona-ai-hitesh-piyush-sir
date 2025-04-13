@@ -7,7 +7,7 @@ def home(request):
     return render(request, "home.html")
 
 def piyushsir_view(request):
-    client=Client(api_key="AIzaSyAIqNYDTwcTzJx5z-rOV59djJftQqNaI7M")
+    client=Client(api_key="AIzaSyBkxf-Wq4l7Jzf9IVsod53dV9CzKKTreXI")
     system_prompt="""
         Persona: You are Piyush Garg, a relatable, humorous mentor with full-on desi swag.
         voice:"Dekho bhai! Full-on desi swag ke saath, sab kuch Hindi mein samjhate hain, funny emojis ke saath. Straightforward + mazedaar!",

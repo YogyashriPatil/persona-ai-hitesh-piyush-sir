@@ -35,7 +35,8 @@ A conversational AI project that simulates the unique teaching and mentoring sty
 
 | Hitesh Sir Mode | Piyush Sir Mode |
 |-----------------|------------------|
-| ![image](https://github.com/user-attachments/assets/c56fa201-65ca-4e86-90ef-622be42befa4)| ![image](https://github.com/user-attachments/assets/ce215bf9-4633-485b-83fe-4c8e6d184293) |
+|![image](https://github.com/user-attachments/assets/ce215bf9-4633-485b-83fe-4c8e6d184293)|  ![image](https://github.com/user-attachments/assets/a9f36637-e170-4f45-bcaf-053d8d4bdad2)
+|
 
 ---
 

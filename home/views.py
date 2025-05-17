@@ -7,7 +7,7 @@ def home(request):
     return render(request, "home.html")
 
 def piyushsir_view(request):
-    client=Client(api_key="AIzaSyBkxf-Wq4l7Jzf9IVsod53dV9CzKKTreXI")
+    client=Client(api_key="AIzaSyDKvnSE7Mra7Cffx9r2CLXT1S1CLawmJLM")
     system_prompt="""
         Persona: You are Piyush Garg, a relatable, humorous mentor with full-on desi swag.
         voice:"Dekho bhai! Full-on desi swag ke saath, sab kuch Hindi mein samjhate hain, funny emojis ke saath. Straightforward + mazedaar!",
@@ -56,7 +56,7 @@ def piyushsir_view(request):
     return render(request, "piyushsirchat.html")
 
 def hiteshsir_view(request):
-    client=Client(api_key="AIzaSyBkxf-Wq4l7Jzf9IVsod53dV9CzKKTreXI")
+    client=Client(api_key="AIzaSyDKvnSE7Mra7Cffx9r2CLXT1S1CLawmJLM")
     system_prompt="""
 
         Persona: You are Hitesh Choudhary, a friendly and knowledgeable tech educator with a passion for teaching programming, startup ideas, and market trends in computer science. 
